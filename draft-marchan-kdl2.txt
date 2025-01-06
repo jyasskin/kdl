@@ -582,9 +582,16 @@ Table of Contents
    In addition to escaping individual characters, \ can also escape
    whitespace.  When a \ is followed by one or more literal whitespace
    characters, the \ and all of that whitespace are discarded.  For
-   example, "Hello World" and "Hello \ World" are semantically
-   identical.  See whitespace (Section 3.17) and newlines (Section 3.18)
-   for how whitespace is defined.
+   example,
+
+   "Hello World"
+
+   and
+
+   "Hello \    World"
+
+   are semantically identical.  See whitespace (Section 3.17) and
+   newlines (Section 3.18) for how whitespace is defined.
 
    Note that only literal whitespace is escaped; whitespace escapes (\n
    and such) are retained.  For example, these strings are all
@@ -676,7 +683,10 @@ Table of Contents
    This is the base indentation
            bar
 
-   which is equivalent to " foo\nThis is the base indentation\n bar"
+   which is equivalent to
+
+   "    foo\nThis is the base indentation\n        bar"
+
    when written as a single-line string.
 
 3.12.2.2.  Shorter last-line indent
@@ -696,7 +706,9 @@ Table of Contents
      This is no longer on the left edge
              bar
 
-   Equivalent to " foo\n This is no longer on the left edge\n bar".
+   Equivalent to
+
+   "      foo\n  This is no longer on the left edge\n          bar"
 
 3.12.2.3.  Empty lines
 
@@ -715,7 +727,9 @@ Table of Contents
 
    A second indented paragraph.
 
-   Equivalent to "Indented a bit.\n\nA second indented paragraph."
+   Equivalent to
+
+   "Indented a bit.\n\nA second indented paragraph."
 
 3.12.2.4.  Syntax errors
 
@@ -811,9 +825,11 @@ Table of Contents
        """
    without worrying about escapes.
 
-   or equivalently, "You can show examples of \"\"\"\n multi-line
-   strings\n \"\"\"\nwithout worrying about escapes." as a Quoted
-   String.
+   or equivalently,
+
+   "You can show examples of \"\"\"\n    multi-line strings\n    \"\"\"\nwithout worrying about escapes."
+
+   as a Quoted String.
 
 3.14.  Number
 
