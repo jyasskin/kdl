@@ -4,8 +4,8 @@
 
 KDL Community                                                 K. Marchán
 Internet-Draft                                                 Microsoft
-Intended status: Experimental                             6 January 2025
-Expires: 10 July 2025
+Intended status: Experimental                             7 January 2025
+Expires: 11 July 2025
 
 
                        The KDL Document Language
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 July 2025.
+   This Internet-Draft will expire on 11 July 2025.
 
 Copyright Notice
 
@@ -775,9 +775,19 @@ Table of Contents
      foo
      bar"""
 
-   while the following example is allowed ~~~kdl """ foo \ bar baz \ """
+   while the following example is allowed
 
-   // equivalent to """ foo bar baz """ ~~~
+     """
+     foo \
+   bar
+     baz
+     \   """
+
+     // equivalent to
+     """
+     foo bar
+     baz
+     """
 
 3.13.  Raw String
 
