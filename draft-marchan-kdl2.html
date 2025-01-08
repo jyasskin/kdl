@@ -1357,7 +1357,7 @@ language, and a data exchange or storage format, if you so choose.<a href="#sect
 <p id="section-2-2">The bulk of this document is dedicated to a long-form description of all
 Components (<a href="#components" class="auto internal xref">Section 3</a>) of a KDL document.
 There is also a much more terse
-<span><a href="#full-grammar" class="internal xref">Grammar</a> (<a href="#full-grammar" class="auto internal xref">Section 4</a>)</span> at the end of the document that covers most of the
+Grammar (<a href="#full-grammar" class="auto internal xref">Section 4</a>) at the end of the document that covers most of the
 rules, with some semantic exceptions involving the data model.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">KDL is designed to be easy to read <em>and</em> easy to implement.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">In this document, references to "left" or "right" refer to directions in the
@@ -1378,7 +1378,7 @@ depending on the characters used.<a href="#section-2-4" class="pilcrow">¶</a></
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-document" class="section-name selfRef">Document</a>
         </h3>
 <p id="section-3.1-1">The toplevel concept of KDL is a Document. A Document is composed of zero or
-more <span><a href="#node" class="internal xref">Nodes</a> (<a href="#node" class="auto internal xref">Section 3.2</a>)</span>, separated by newlines and whitespace, and eventually
+more Nodes (<a href="#node" class="auto internal xref">Section 3.2</a>), separated by newlines and whitespace, and eventually
 terminated by an EOF.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">All KDL documents should be UTF-8 encoded and conform to the specifications in
 this document.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
@@ -1408,27 +1408,27 @@ baz
 <p id="section-3.2-1">Being a node-oriented language means that the real core component of any KDL
 document is the "node". Every node must have a name, which must be a
 String (<a href="#string" class="auto internal xref">Section 3.9</a>).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">The name may be preceded by a <span><a href="#type-annotation" class="internal xref">Type Annotation</a> (<a href="#type-annotation" class="auto internal xref">Section 3.8</a>)</span> to further
+<p id="section-3.2-2">The name may be preceded by a Type Annotation (<a href="#type-annotation" class="auto internal xref">Section 3.8</a>) to further
 clarify its type, particularly in relation to its parent node. (For example,
 clarifying that a particular <code>date</code> child node is for the <em>publication</em> date,
 rather than the last-modified date, with <code>(published)date</code>.)<a href="#section-3.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.2-3">Following the name are zero or more <span><a href="#argument" class="internal xref">Arguments</a> (<a href="#argument" class="auto internal xref">Section 3.5</a>)</span> or
-<span><a href="#property" class="internal xref">Properties</a> (<a href="#property" class="auto internal xref">Section 3.4</a>)</span>, separated by either whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>) or <span><a href="#line-continuation" class="internal xref">a
-slash-escaped line continuation</a> (<a href="#line-continuation" class="auto internal xref">Section 3.3</a>)</span>. Arguments and Properties
+<p id="section-3.2-3">Following the name are zero or more Arguments (<a href="#argument" class="auto internal xref">Section 3.5</a>) or
+Properties (<a href="#property" class="auto internal xref">Section 3.4</a>), separated by either whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>) or a
+slash-escaped line continuation (<a href="#line-continuation" class="auto internal xref">Section 3.3</a>). Arguments and Properties
 may be interspersed in any order, much like is common with positional arguments
 vs options in command line tools. Collectively, Arguments and Properties may be
 referred to as "Entries".<a href="#section-3.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.2-4"><span><a href="#children-block" class="internal xref">Children</a> (<a href="#children-block" class="auto internal xref">Section 3.6</a>)</span> can be placed after the name and the optional
+<p id="section-3.2-4">Children (<a href="#children-block" class="auto internal xref">Section 3.6</a>) can be placed after the name and the optional
 Entries, possibly separated by either whitespace or a
 slash-escaped line continuation.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
 <p id="section-3.2-5">Arguments are ordered relative to each other and that order must be preserved in
 order to maintain the semantics. Properties between Arguments do not affect
 Argument ordering.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.2-6">By contrast, Properties <em>SHOULD NOT</em> be assumed to be presented in a given
-order. <span><a href="#children-block" class="internal xref">Children</a> (<a href="#children-block" class="auto internal xref">Section 3.6</a>)</span> should be used if an order-sensitive
+order. Children (<a href="#children-block" class="auto internal xref">Section 3.6</a>) should be used if an order-sensitive
 key/value data structure must be represented in KDL. Cf. JSON objects
 preserving key order.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.2-7">Nodes <em>MAY</em> be prefixed with <span><a href="#slashdash-comments" class="internal xref">Slashdash</a> (<a href="#slashdash-comments" class="auto internal xref">Section 3.17.3</a>)</span> to "comment out"
+<p id="section-3.2-7">Nodes <em>MAY</em> be prefixed with Slashdash (<a href="#slashdash-comments" class="auto internal xref">Section 3.17.3</a>) to "comment out"
 the entire node, including its properties, arguments, and children, and make
 it act as plain whitespace, even if it spreads across multiple lines.<a href="#section-3.2-7" class="pilcrow">¶</a></p>
 <p id="section-3.2-8">Finally, a node is terminated by either a Newline (<a href="#newline" class="auto internal xref">Section 3.18</a>), a semicolon
@@ -1456,7 +1456,7 @@ foo 1 key=val 3 {
         <h3 id="name-line-continuation">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-line-continuation" class="section-name selfRef">Line Continuation</a>
         </h3>
-<p id="section-3.3-1">Line continuations allow <span><a href="#node" class="internal xref">Nodes</a> (<a href="#node" class="auto internal xref">Section 3.2</a>)</span> to be spread across multiple lines.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">Line continuations allow Nodes (<a href="#node" class="auto internal xref">Section 3.2</a>) to be spread across multiple lines.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">A line continuation is a <code>\</code> character followed by zero or more whitespace
 items (including multiline comments) and an optional single-line comment. It
 must be terminated by a Newline (<a href="#newline" class="auto internal xref">Section 3.18</a>) (including the Newline that is
@@ -1506,7 +1506,7 @@ make it act as plain whitespace, even if it spreads across multiple lines.<a hre
 <a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-argument" class="section-name selfRef">Argument</a>
         </h3>
 <p id="section-3.5-1">An Argument is a bare Value (<a href="#value" class="auto internal xref">Section 3.7</a>) attached to a Node (<a href="#node" class="auto internal xref">Section 3.2</a>), with no
-associated key. It shares the same space as <span><a href="#property" class="internal xref">Properties</a> (<a href="#property" class="auto internal xref">Section 3.4</a>)</span>, and may be interleaved with them.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+associated key. It shares the same space as Properties (<a href="#property" class="auto internal xref">Section 3.4</a>), and may be interleaved with them.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <p id="section-3.5-2">A Node may have any number of Arguments, which should be evaluated left to
 right. KDL implementations <em>MUST</em> preserve the order of Arguments relative to
 each other (not counting Properties).<a href="#section-3.5-2" class="pilcrow">¶</a></p>
@@ -1531,7 +1531,7 @@ my-node 1 2 3 a b c
         <h3 id="name-children-block">
 <a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-children-block" class="section-name selfRef">Children Block</a>
         </h3>
-<p id="section-3.6-1">A children block is a block of <span><a href="#node" class="internal xref">Nodes</a> (<a href="#node" class="auto internal xref">Section 3.2</a>)</span>, surrounded by <code>{</code> and <code>}</code>. They
+<p id="section-3.6-1">A children block is a block of Nodes (<a href="#node" class="auto internal xref">Section 3.2</a>), surrounded by <code>{</code> and <code>}</code>. They
 are an optional part of nodes, and create a hierarchy of KDL nodes.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
 <p id="section-3.6-2">Regular node termination rules apply, which means multiple nodes can be
 included in a single-line children block, as long as they're all terminated by
@@ -1562,11 +1562,11 @@ parent { child1; child2; }
         </h3>
 <p id="section-3.7-1">A value is either: a String (<a href="#string" class="auto internal xref">Section 3.9</a>), a Number (<a href="#number" class="auto internal xref">Section 3.14</a>), a
 Boolean (<a href="#boolean" class="auto internal xref">Section 3.15</a>), or Null (<a href="#null" class="auto internal xref">Section 3.16</a>).<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.7-2">Values <em>MUST</em> be either <span><a href="#argument" class="internal xref">Arguments</a> (<a href="#argument" class="auto internal xref">Section 3.5</a>)</span> or values of
-<span><a href="#property" class="internal xref">Properties</a> (<a href="#property" class="auto internal xref">Section 3.4</a>)</span>. Only String (<a href="#string" class="auto internal xref">Section 3.9</a>) values may be used as
+<p id="section-3.7-2">Values <em>MUST</em> be either Arguments (<a href="#argument" class="auto internal xref">Section 3.5</a>) or values of
+Properties (<a href="#property" class="auto internal xref">Section 3.4</a>). Only String (<a href="#string" class="auto internal xref">Section 3.9</a>) values may be used as
 Node (<a href="#node" class="auto internal xref">Section 3.2</a>) names or Property (<a href="#property" class="auto internal xref">Section 3.4</a>) keys.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
 <p id="section-3.7-3">Values (both as arguments and in properties) <em>MAY</em> be prefixed by a single
-<span><a href="#type-annotation" class="internal xref">Type Annotation</a> (<a href="#type-annotation" class="auto internal xref">Section 3.8</a>)</span>.<a href="#section-3.7-3" class="pilcrow">¶</a></p>
+Type Annotation (<a href="#type-annotation" class="auto internal xref">Section 3.8</a>).<a href="#section-3.7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="type-annotation">
@@ -1574,7 +1574,7 @@ Node (<a href="#node" class="auto internal xref">Section 3.2</a>) names or Prope
         <h3 id="name-type-annotation">
 <a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-type-annotation" class="section-name selfRef">Type Annotation</a>
         </h3>
-<p id="section-3.8-1">A type annotation is a prefix to any <span><a href="#node" class="internal xref">Node Name</a> (<a href="#node" class="auto internal xref">Section 3.2</a>)</span> or Value (<a href="#value" class="auto internal xref">Section 3.7</a>) that
+<p id="section-3.8-1">A type annotation is a prefix to any Node Name (<a href="#node" class="auto internal xref">Section 3.2</a>) or Value (<a href="#value" class="auto internal xref">Section 3.7</a>) that
 includes a <em>suggestion</em> of what type the value is <em>intended</em> to be treated as,
 or as a <em>context-specific elaboration</em> of the more generic type the node name
 indicates.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
@@ -1763,12 +1763,12 @@ node prop=(regex).*
         <h3 id="name-string">
 <a href="#section-3.9" class="section-number selfRef">3.9. </a><a href="#name-string" class="section-name selfRef">String</a>
         </h3>
-<p id="section-3.9-1">Strings in KDL represent textual UTF-8 <span><a href="#value" class="internal xref">Values</a> (<a href="#value" class="auto internal xref">Section 3.7</a>)</span>. A String is either an
-<span><a href="#identifier-string" class="internal xref">Identifier String</a> (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>)</span> (like <code>foo</code>), a
-<span><a href="#quoted-string" class="internal xref">Quoted String</a> (<a href="#quoted-string" class="auto internal xref">Section 3.11</a>)</span> (like <code>"foo"</code>)
-or a <span><a href="#multi-line-string" class="internal xref">Multi-Line String</a> (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>)</span>.
+<p id="section-3.9-1">Strings in KDL represent textual UTF-8 Values (<a href="#value" class="auto internal xref">Section 3.7</a>). A String is either an
+Identifier String (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>) (like <code>foo</code>), a
+Quoted String (<a href="#quoted-string" class="auto internal xref">Section 3.11</a>) (like <code>"foo"</code>)
+or a Multi-Line String (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>).
 Both Quoted and Multiline strings come in normal
-and <span><a href="#raw-string" class="internal xref">Raw String</a> (<a href="#raw-string" class="auto internal xref">Section 3.13</a>)</span> variants (like <code>#"foo"#</code>):<a href="#section-3.9-1" class="pilcrow">¶</a></p>
+and Raw String (<a href="#raw-string" class="auto internal xref">Section 3.13</a>) variants (like <code>#"foo"#</code>):<a href="#section-3.9-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.9-2.1">
             <p id="section-3.9-2.1.1">Identifier Strings let you write short, "single-word" strings with a
@@ -1789,7 +1789,7 @@ might look like an escape.<a href="#section-3.9-2.4.1" class="pilcrow">¶</a></p
         </ul>
 <p id="section-3.9-3">Strings <em>MUST</em> be represented as UTF-8 values.<a href="#section-3.9-3" class="pilcrow">¶</a></p>
 <p id="section-3.9-4">Strings <em>MUST NOT</em> include the code points for
-<span><a href="#disallowed-literal-code-points" class="internal xref">disallowed literal code points</a> (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>)</span> directly.
+disallowed literal code points (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>) directly.
 Quoted and Multi-Line Strings may include these code points as <em>values</em>
 by representing them with their corresponding <code>\u{...}</code> escape.<a href="#section-3.9-4" class="pilcrow">¶</a></p>
 </section>
@@ -1802,9 +1802,9 @@ by representing them with their corresponding <code>\u{...}</code> escape.<a hre
 <p id="section-3.10-1">An Identifier String (sometimes referred to as just an "identifier") is
 composed of any <a href="https://unicode.org/glossary/#unicode_scalar_value">Unicode Scalar
 Value</a> other than
-<span><a href="#non-initial-characters" class="internal xref">non-initial characters</a> (<a href="#non-initial-characters" class="auto internal xref">Section 3.10.1</a>)</span>, followed by any number of
-Unicode Scalar Values other than <span><a href="#non-identifier-characters" class="internal xref">non-identifier
-characters</a> (<a href="#non-identifier-characters" class="auto internal xref">Section 3.10.2</a>)</span>.<a href="#section-3.10-1" class="pilcrow">¶</a></p>
+non-initial characters (<a href="#non-initial-characters" class="auto internal xref">Section 3.10.1</a>), followed by any number of
+Unicode Scalar Values other than non-identifier
+characters (<a href="#non-identifier-characters" class="auto internal xref">Section 3.10.2</a>).<a href="#section-3.10-1" class="pilcrow">¶</a></p>
 <p id="section-3.10-2">A handful of patterns are disallowed, to avoid confusion with other values:<a href="#section-3.10-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.10-3.1">
@@ -1819,22 +1819,22 @@ characters</a> (<a href="#non-identifier-characters" class="auto internal xref">
         </ul>
 <p id="section-3.10-4">Identifiers that match these patterns <em>MUST</em> be treated as a syntax error; such
 values can only be written as quoted or raw strings. The precise details of the
-identifier syntax is specified in the <span><a href="#full-grammar" class="internal xref">Full Grammar</a> (<a href="#full-grammar" class="auto internal xref">Section 4</a>)</span> below.<a href="#section-3.10-4" class="pilcrow">¶</a></p>
+identifier syntax is specified in the Full Grammar in <a href="#full-grammar" class="auto internal xref">Section 4</a>.<a href="#section-3.10-4" class="pilcrow">¶</a></p>
 <p id="section-3.10-5">Identifier Strings are terminated by Whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>) or
-<span><a href="#newline" class="internal xref">Newlines</a> (<a href="#newline" class="auto internal xref">Section 3.18</a>)</span>.<a href="#section-3.10-5" class="pilcrow">¶</a></p>
+Newlines (<a href="#newline" class="auto internal xref">Section 3.18</a>).<a href="#section-3.10-5" class="pilcrow">¶</a></p>
 <div id="non-initial-characters">
 <section id="section-3.10.1">
           <h4 id="name-non-initial-characters">
 <a href="#section-3.10.1" class="section-number selfRef">3.10.1. </a><a href="#name-non-initial-characters" class="section-name selfRef">Non-initial characters</a>
           </h4>
 <p id="section-3.10.1-1">The following characters cannot be the first character in an
-<span><a href="#identifier-string" class="internal xref">Identifier String</a> (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>)</span>:<a href="#section-3.10.1-1" class="pilcrow">¶</a></p>
+Identifier String (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>):<a href="#section-3.10.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.10.1-2.1">
               <p id="section-3.10.1-2.1.1">Any decimal digit (0-9)<a href="#section-3.10.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.10.1-2.2">
-              <p id="section-3.10.1-2.2.1">Any <span><a href="#non-identifier-characters" class="internal xref">non-identifier characters</a> (<a href="#non-identifier-characters" class="auto internal xref">Section 3.10.2</a>)</span><a href="#section-3.10.1-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.10.1-2.2.1">Any non-identifier characters (<a href="#non-identifier-characters" class="auto internal xref">Section 3.10.2</a>)<a href="#section-3.10.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-3.10.1-3">Additionally, the <code>-</code> character can only be used as an initial character if
@@ -1848,7 +1848,7 @@ negative number.<a href="#section-3.10.1-3" class="pilcrow">¶</a></p>
           <h4 id="name-non-identifier-characters">
 <a href="#section-3.10.2" class="section-number selfRef">3.10.2. </a><a href="#name-non-identifier-characters" class="section-name selfRef">Non-identifier characters</a>
           </h4>
-<p id="section-3.10.2-1">The following characters cannot be used anywhere in a <span><a href="#identifier-string" class="internal xref">Identifier String</a> (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>)</span>:<a href="#section-3.10.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.10.2-1">The following characters cannot be used anywhere in a Identifier String (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>):<a href="#section-3.10.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.10.2-2.1">
               <p id="section-3.10.2-2.1.1">Any of <code>(){}[]/\"#;=</code><a href="#section-3.10.2-2.1.1" class="pilcrow">¶</a></p>
@@ -1857,7 +1857,7 @@ negative number.<a href="#section-3.10.1-3" class="pilcrow">¶</a></p>
               <p id="section-3.10.2-2.2.1">Any Whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>) or Newline (<a href="#newline" class="auto internal xref">Section 3.18</a>).<a href="#section-3.10.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.10.2-2.3">
-              <p id="section-3.10.2-2.3.1">Any <span><a href="#disallowed-literal-code-points" class="internal xref">disallowed literal code points</a> (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>)</span> in KDL
+              <p id="section-3.10.2-2.3.1">Any disallowed literal code points (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>) in KDL
 documents.<a href="#section-3.10.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
@@ -1873,16 +1873,16 @@ documents.<a href="#section-3.10.2-2.3.1" class="pilcrow">¶</a></p>
 <p id="section-3.11-1">A Quoted String is delimited by <code>"</code> on either side of any number of literal
 string characters except unescaped <code>"</code> and <code>\</code>.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
 <p id="section-3.11-2">Literal Newline (<a href="#newline" class="auto internal xref">Section 3.18</a>) characters can only be included
-if they are <span><a href="#escaped-whitespace" class="internal xref">Escaped Whitespace</a> (<a href="#escaped-whitespace" class="auto internal xref">Section 3.11.1.1</a>)</span>,
+if they are Escaped Whitespace (<a href="#escaped-whitespace" class="auto internal xref">Section 3.11.1.1</a>),
 which discards them from the string value.
 Actually including a newline in the value requires using a newline escape sequence,
 like <code>\n</code>,
-or using a <span><a href="#multi-line-string" class="internal xref">Multi-Line String</a> (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>)</span>
+or using a Multi-Line String (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>)
 which is actually designed for strings stretching across multiple lines.<a href="#section-3.11-2" class="pilcrow">¶</a></p>
 <p id="section-3.11-3">Like Identifier Strings, Quoted Strings <em>MUST NOT</em> include any of the
-<span><a href="#disallowed-literal-code-points" class="internal xref">disallowed literal code-points</a> (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>)</span> as code
+disallowed literal code-points (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>) as code
 points in their body.<a href="#section-3.11-3" class="pilcrow">¶</a></p>
-<p id="section-3.11-4">Quoted Strings have a <span><a href="#raw-string" class="internal xref">Raw String</a> (<a href="#raw-string" class="auto internal xref">Section 3.13</a>)</span> variant,
+<p id="section-3.11-4">Quoted Strings have a Raw String (<a href="#raw-string" class="auto internal xref">Section 3.13</a>) variant,
 which disallows escapes.<a href="#section-3.11-4" class="pilcrow">¶</a></p>
 <div id="escapes">
 <section id="section-3.11.1">
@@ -2009,7 +2009,7 @@ and all of that whitespace are discarded. For example,<a href="#section-3.11.1.1
 </pre><a href="#section-3.11.1.1-4" class="pilcrow">¶</a>
 </div>
 <p id="section-3.11.1.1-5">are semantically identical. See whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>)
-and <span><a href="#newline" class="internal xref">newlines</a> (<a href="#newline" class="auto internal xref">Section 3.18</a>)</span> for how whitespace is defined.<a href="#section-3.11.1.1-5" class="pilcrow">¶</a></p>
+and newlines (<a href="#newline" class="auto internal xref">Section 3.18</a>) for how whitespace is defined.<a href="#section-3.11.1.1-5" class="pilcrow">¶</a></p>
 <p id="section-3.11.1.1-6">Note that only literal whitespace is escaped; whitespace escapes (<code>\n</code> and
 such) are retained. For example, these strings are all semantically identical:<a href="#section-3.11.1.1-6" class="pilcrow">¶</a></p>
 <div class="lang-kdl sourcecode" id="section-3.11.1.1-7">
@@ -2289,7 +2289,7 @@ bar
         <h3 id="name-raw-string">
 <a href="#section-3.13" class="section-number selfRef">3.13. </a><a href="#name-raw-string" class="section-name selfRef">Raw String</a>
         </h3>
-<p id="section-3.13-1">Both <span><a href="#quoted-string" class="internal xref">Quoted</a> (<a href="#quoted-string" class="auto internal xref">Section 3.11</a>)</span> and <span><a href="#multi-line-string" class="internal xref">Multi-Line Strings</a> (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>)</span> have
+<p id="section-3.13-1">Both Quoted (<a href="#quoted-string" class="auto internal xref">Section 3.11</a>) and Multi-Line Strings (<a href="#multi-line-string" class="auto internal xref">Section 3.12</a>) have
 Raw String variants, which are identical in syntax except they do not support
 <code>\</code>-escapes. This includes line-continuation escapes (<code>\</code> + <code>ws</code> collapsing to
 nothing). They otherwise share the same properties as far as literal
@@ -2301,8 +2301,8 @@ quotes, followed by a <em>matching</em> number of <code>#</code> characters. Thi
 string may contain any combination of <code>"</code> and <code>#</code> characters other than its
 closing delimiter (e.g., if a raw string starts with <code>##"</code>, it can contain <code>"</code>
 or <code>"#</code>, but not <code>"##</code> or <code>"###</code>).<a href="#section-3.13-2" class="pilcrow">¶</a></p>
-<p id="section-3.13-3">Like other Strings, Raw Strings <em>MUST NOT</em> include any of the <span><a href="#disallowed-literal-code-points" class="internal xref">disallowed
-literal code-points</a> (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>)</span> as code points in their
+<p id="section-3.13-3">Like other Strings, Raw Strings <em>MUST NOT</em> include any of the disallowed
+literal code-points (<a href="#disallowed-literal-code-points" class="auto internal xref">Section 3.19</a>) as code points in their
 body. Unlike with Quoted Strings, these cannot simply be escaped, and are thus
 unrepresentable when using Raw Strings.<a href="#section-3.13-3" class="pilcrow">¶</a></p>
 <div id="example-5">
@@ -2357,13 +2357,13 @@ without worrying about escapes.
         <h3 id="name-number">
 <a href="#section-3.14" class="section-number selfRef">3.14. </a><a href="#name-number" class="section-name selfRef">Number</a>
         </h3>
-<p id="section-3.14-1">Numbers in KDL represent numerical <span><a href="#value" class="internal xref">Values</a> (<a href="#value" class="auto internal xref">Section 3.7</a>)</span>. There is no logical distinction in KDL
+<p id="section-3.14-1">Numbers in KDL represent numerical Values (<a href="#value" class="auto internal xref">Section 3.7</a>). There is no logical distinction in KDL
 between real numbers, integers, and floating point numbers. It's up to
 individual implementations to determine how to represent KDL numbers.<a href="#section-3.14-1" class="pilcrow">¶</a></p>
 <p id="section-3.14-2">There are five syntaxes for Numbers: Keywords, Decimal, Hexadecimal, Octal, and Binary.<a href="#section-3.14-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.14-3.1">
-            <p id="section-3.14-3.1.1">All non-<span><a href="#keyword-numbers" class="internal xref">Keyword</a> (<a href="#keyword-numbers" class="auto internal xref">Section 3.14.1</a>)</span> numbers may optionally start with one of <code>-</code> or <code>+</code>, which determine whether they'll be positive or negative.<a href="#section-3.14-3.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.14-3.1.1">All non-Keyword (<a href="#keyword-numbers" class="auto internal xref">Section 3.14.1</a>) numbers may optionally start with one of <code>-</code> or <code>+</code>, which determine whether they'll be positive or negative.<a href="#section-3.14-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.14-3.2">
             <p id="section-3.14-3.2.1">Binary numbers start with <code>0b</code> and only allow <code>0</code> and <code>1</code> as digits, which may be separated by <code>_</code>. They represent numbers in radix 2.<a href="#section-3.14-3.2.1" class="pilcrow">¶</a></p>
@@ -2395,7 +2395,7 @@ individual implementations to determine how to represent KDL numbers.<a href="#s
 <p id="section-3.14-4">Note that, similar to JSON and some other languages,
 numbers without an integer digit (such as <code>.1</code>) are illegal.
 They must be written with at least one integer digit, like <code>0.1</code>.
-(These patterns are also disallowed from <span><a href="#identifier-string" class="internal xref">Identifier Strings</a> (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>)</span>, to avoid confusion.)<a href="#section-3.14-4" class="pilcrow">¶</a></p>
+(These patterns are also disallowed from Identifier Strings (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>), to avoid confusion.)<a href="#section-3.14-4" class="pilcrow">¶</a></p>
 <div id="keyword-numbers">
 <section id="section-3.14.1">
           <h4 id="name-keyword-numbers">
@@ -2414,8 +2414,8 @@ widespread use of <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> 
               <p id="section-3.14.1-2.3.1"><code>#nan</code> - floating point NaN/Not a Number.<a href="#section-3.14.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.14.1-3">To go along with this and prevent foot guns, the bare <span><a href="#identifier-string" class="internal xref">Identifier
-Strings</a> (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>)</span> <code>inf</code>, <code>-inf</code>, and <code>nan</code> are considered illegal
+<p id="section-3.14.1-3">To go along with this and prevent foot guns, the bare Identifier
+Strings (<a href="#identifier-string" class="auto internal xref">Section 3.10</a>) <code>inf</code>, <code>-inf</code>, and <code>nan</code> are considered illegal
 identifiers and should yield a syntax error.<a href="#section-3.14.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.14.1-4">The existence of these keywords does not imply that any numbers be represented
 as IEEE 754 floats. These are simply for clarity and convenience for any
@@ -2473,7 +2473,7 @@ my-node #null key=#null
         <h3 id="name-whitespace">
 <a href="#section-3.17" class="section-number selfRef">3.17. </a><a href="#name-whitespace" class="section-name selfRef">Whitespace</a>
         </h3>
-<p id="section-3.17-1">The following characters should be treated as <span><a href="#newline" class="internal xref">non-Newline</a> (<a href="#newline" class="auto internal xref">Section 3.18</a>)</span> <a href="https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt">white
+<p id="section-3.17-1">The following characters should be treated as non-Newline (<a href="#newline" class="auto internal xref">Section 3.18</a>) <a href="https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt">white
 space</a>:<a href="#section-3.17-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
           <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
@@ -2637,7 +2637,7 @@ props, args, and children.<a href="#section-3.17.3-3.1.1" class="pilcrow">¶</a>
 is treated as Whitespace. A slashdash of just the property value is not allowed.<a href="#section-3.17.3-3.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.17.3-3.4">
-              <p id="section-3.17.3-3.4.1">A <span><a href="#children-block" class="internal xref">Children Block</a> (<a href="#children-block" class="auto internal xref">Section 3.6</a>)</span>: the entire block, including all
+              <p id="section-3.17.3-3.4.1">A Children Block (<a href="#children-block" class="auto internal xref">Section 3.6</a>): the entire block, including all
 children within, is treated as Whitespace. Only other children blocks, whether
 slashdashed or not, may follow a slashdashed children block.<a href="#section-3.17.3-3.4.1" class="pilcrow">¶</a></p>
 </li>
@@ -2733,7 +2733,7 @@ considered <em>a single newline</em>.<a href="#section-3.18-3" class="pilcrow">�
 <a href="#section-3.19" class="section-number selfRef">3.19. </a><a href="#name-disallowed-literal-code-poi" class="section-name selfRef">Disallowed Literal Code Points</a>
         </h3>
 <p id="section-3.19-1">The following code points may not appear literally anywhere in the document.
-They may be represented in Strings (but not Raw Strings) using <span><a href="#escapes" class="internal xref">Unicode Escapes</a> (<a href="#escapes" class="auto internal xref">Section 3.11.1</a>)</span> (<code>\u{...}</code>,
+They may be represented in Strings (but not Raw Strings) using Unicode Escapes (<a href="#escapes" class="auto internal xref">Section 3.11.1</a>) (<code>\u{...}</code>,
 except for non Unicode Scalar Value, which can't be represented even as escapes).<a href="#section-3.19-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.19-2.1">
@@ -2767,8 +2767,8 @@ except as the first code point in a document.<a href="#section-3.19-2.5.1" class
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-full-grammar" class="section-name selfRef">Full Grammar</a>
       </h2>
 <p id="section-4-1">This is the full official grammar for KDL and should be considered
-authoritative if something seems to disagree with the text above. The <span><a href="#grammar-language" class="internal xref">grammar
-language syntax</a> (<a href="#grammar-language" class="auto internal xref">Section 4.1</a>)</span> is defined below.<a href="#section-4-1" class="pilcrow">¶</a></p>
+authoritative if something seems to disagree with the text above. The grammar
+language syntax is defined in <a href="#grammar-language" class="auto internal xref">Section 4.1</a>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div class="breakable lang-abnf sourcecode" id="section-4-2">
 <pre>
 document := bom? version? nodes

@@ -483,7 +483,7 @@ Table of Contents
    Identifiers that match these patterns _MUST_ be treated as a syntax
    error; such values can only be written as quoted or raw strings.  The
    precise details of the identifier syntax is specified in the Full
-   Grammar (Section 4) below.
+   Grammar in Section 4.
 
    Identifier Strings are terminated by Whitespace (Section 3.17) or
    Newlines (Section 3.18).
@@ -522,9 +522,9 @@ Table of Contents
    Literal Newline (Section 3.18) characters can only be included if
    they are Escaped Whitespace (Section 3.11.1.1), which discards them
    from the string value.  Actually including a newline in the value
-   requires using a newline escape sequence, like \n, or using a
-   Multi-Line String (Section 3.12) which is actually designed for
-   strings stretching across multiple lines.
+   requires using a newline escape sequence, like \n, or using a Multi-
+   Line String (Section 3.12) which is actually designed for strings
+   stretching across multiple lines.
 
    Like Identifier Strings, Quoted Strings _MUST NOT_ include any of the
    disallowed literal code-points (Section 3.19) as code points in their
@@ -1071,7 +1071,7 @@ Table of Contents
 
    This is the full official grammar for KDL and should be considered
    authoritative if something seems to disagree with the text above.
-   The grammar language syntax (Section 4.1) is defined below.
+   The grammar language syntax is defined in Section 4.1.
 
    document := bom? version? nodes
 
