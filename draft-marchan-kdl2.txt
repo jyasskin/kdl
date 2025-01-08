@@ -4,8 +4,8 @@
 
 KDL Community                                                 K. Marchán
 Internet-Draft                                                 Microsoft
-Intended status: Experimental                             7 January 2025
-Expires: 11 July 2025
+Intended status: Experimental                             8 January 2025
+Expires: 12 July 2025
 
 
                        The KDL Document Language
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 July 2025.
+   This Internet-Draft will expire on 12 July 2025.
 
 Copyright Notice
 
