@@ -464,7 +464,7 @@ Table of Contents
    Grammar in Section 4.
 
    Identifier Strings are terminated by Whitespace (Section 3.17) or
-   Newlines (Section 3.18).
+   Newlines (Section 3.18), or the end of the file/stream (an EOF).
 
 3.10.1.  Non-initial characters
 
