@@ -1068,7 +1068,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="workgroup">KDL Community</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-01-11" class="published">11 January 2025</time>
+<time datetime="2025-01-18" class="published">18 January 2025</time>
     </dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
@@ -1673,7 +1673,8 @@ and, if used, SHOULD interpret these types as follows:<a href="#section-3.8-4" c
               <p id="section-3.8.3-1.12.1"><code>hostname</code>: RFC1132 internet hostname (only ASCII segments)<a href="#section-3.8.3-1.12.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.8.3-1.13">
-              <p id="section-3.8.3-1.13.1"><code>idn-hostname</code>: RFC5890 internationalized internet hostname (only <code>xn--</code>-prefixed ASCII "punycode" segments, or non-ASCII segments)<a href="#section-3.8.3-1.13.1" class="pilcrow">¶</a></p>
+              <p id="section-3.8.3-1.13.1"><code>idn-hostname</code>: RFC5890 internationalized internet hostname
+(only <code>xn--</code>-prefixed ASCII "punycode" segments, or non-ASCII segments)<a href="#section-3.8.3-1.13.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.8.3-1.14">
               <p id="section-3.8.3-1.14.1"><code>ipv4</code>: RFC2673 dotted-quad IPv4 address.<a href="#section-3.8.3-1.14.1" class="pilcrow">¶</a></p>
@@ -1787,8 +1788,6 @@ characters (<a href="#non-identifier-characters" class="auto internal xref">Sect
 <p id="section-3.10-4">Identifiers that match these patterns <em>MUST</em> be treated as a syntax error; such
 values can only be written as quoted or raw strings. The precise details of the
 identifier syntax is specified in the Full Grammar in <a href="#full-grammar" class="auto internal xref">Section 4</a>.<a href="#section-3.10-4" class="pilcrow">¶</a></p>
-<p id="section-3.10-5">Identifier Strings are terminated by Whitespace (<a href="#whitespace" class="auto internal xref">Section 3.17</a>) or
-Newlines (<a href="#newline" class="auto internal xref">Section 3.18</a>), or the end of the file/stream (an <code>EOF</code>).<a href="#section-3.10-5" class="pilcrow">¶</a></p>
 <div id="non-initial-characters">
 <section id="section-3.10.1">
           <h4 id="name-non-initial-characters">
@@ -1804,10 +1803,21 @@ Identifier String (<a href="#identifier-string" class="auto internal xref">Secti
               <p id="section-3.10.1-2.2.1">Any non-identifier characters (<a href="#non-identifier-characters" class="auto internal xref">Section 3.10.2</a>)<a href="#section-3.10.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.10.1-3">Additionally, the <code>-</code> character can only be used as an initial character if
-the second character is <em>not</em> a digit. This allows identifiers to look like
-<code>--this</code>, and removes the ambiguity of having an identifier look like a
-negative number.<a href="#section-3.10.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.10.1-3">Additionally, the following initial characters impose limitations on subsequent
+characters:<a href="#section-3.10.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.10.1-4.1">
+              <p id="section-3.10.1-4.1.1">the <code>+</code> and <code>-</code> characters can only be used as an initial character if
+the second character is <em>not</em> a digit. If the second character is <code>.</code>, then
+the third character must <em>not</em> be a digit.<a href="#section-3.10.1-4.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.10.1-4.2">
+              <p id="section-3.10.1-4.2.1">the <code>.</code> character can only be used as an initial character if
+the second character is <em>not</em> a digit.<a href="#section-3.10.1-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.10.1-5">This allows identifiers to look like <code>--this</code> or <code>.md</code>, and removes the
+ambiguity of having an identifier look like a number.<a href="#section-3.10.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="non-identifier-characters">
@@ -2292,26 +2302,26 @@ quotes-and-escapes ##"hello\n\r\asd"#world"##
 <div class="lang-kdl sourcecode" id="section-3.13.1-5">
 <pre>
 raw-multi-line #"""
-    You can show examples of """
-        multi-line strings
+    Here's a """
+        multiline string
         """
-    without worrying about escapes.
+    without escapes.
     """#
 </pre><a href="#section-3.13.1-5" class="pilcrow">¶</a>
 </div>
 <p id="section-3.13.1-6">The string contains the value<a href="#section-3.13.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3.13.1-7">
 <pre>
-You can show examples of """
-    multi-line strings
+Here's a """
+    multiline string
     """
-without worrying about escapes.
+without escapes.
 </pre><a href="#section-3.13.1-7" class="pilcrow">¶</a>
 </div>
 <p id="section-3.13.1-8">or equivalently,<a href="#section-3.13.1-8" class="pilcrow">¶</a></p>
 <div class="lang-kdl sourcecode" id="section-3.13.1-9">
 <pre>
-"You can show examples of \"\"\"\n    multi-line strings\n    \"\"\"\nwithout worrying about escapes."
+"Here's a \"\"\"\n    multiline string\n    \"\"\"\nwithout escapes."
 </pre><a href="#section-3.13.1-9" class="pilcrow">¶</a>
 </div>
 <p id="section-3.13.1-10">as a Quoted String.<a href="#section-3.13.1-10" class="pilcrow">¶</a></p>
@@ -2744,12 +2754,12 @@ document := bom? version? nodes
 nodes := (line-space* node)* line-space*
 
 base-node := slashdash? type? node-space* string
-      (node-space+ slashdash? node-prop-or-arg)*
-      // slashdashed node-children must always be after props and args.
-      (node-space+ slashdash node-children)*
-      (node-space+ node-children)?
-      (node-space+ slashdash node-children)*
-      node-space*
+    (node-space+ slashdash? node-prop-or-arg)*
+    // slashdashed node-children must always be after props and args.
+    (node-space+ slashdash node-children)*
+    (node-space+ node-children)?
+    (node-space+ slashdash node-children)*
+    node-space*
 node := base-node node-terminator
 final-node := base-node node-terminator?
 
@@ -2766,16 +2776,31 @@ type := '(' node-space* string node-space* ')'
 string := identifier-string | quoted-string | raw-string ¶
 
 identifier-string := unambiguous-ident | signed-ident | dotted-ident
-unambiguous-ident := ((identifier-char - digit - sign - '.') identifier-char*) - disallowed-keyword-strings
-signed-ident := sign ((identifier-char - digit - '.') identifier-char*)?
-dotted-ident := sign? '.' ((identifier-char - digit) identifier-char*)?
-identifier-char := unicode - unicode-space - newline - [\\/(){};\[\]"#=] - disallowed-literal-code-points
-disallowed-keyword-identifiers := 'true' | 'false' | 'null' | 'inf' | '-inf' | 'nan'
+unambiguous-ident :=
+    ((identifier-char - digit - sign - '.') identifier-char*)
+    - disallowed-keyword-strings
+signed-ident :=
+    sign ((identifier-char - digit - '.') identifier-char*)?
+dotted-ident :=
+    sign? '.' ((identifier-char - digit) identifier-char*)?
+identifier-char :=
+    unicode - unicode-space - newline - [\\/(){};\[\]"#=]
+    - disallowed-literal-code-points
+disallowed-keyword-identifiers :=
+    'true' | 'false' | 'null' | 'inf' | '-inf' | 'nan'
 
-quoted-string := '"' single-line-string-body '"' | '"""' newline multi-line-string-body newline (unicode-space | ws-escape)* '"""'
+quoted-string :=
+    '"' single-line-string-body '"' |
+    '"""' newline
+    (multi-line-string-body newline)?
+    (unicode-space | ws-escape)* '"""'
 single-line-string-body := (string-character - newline)*
 multi-line-string-body := (('"' | '""')? string-character)*
-string-character := '\\' (["\\bfnrts] | 'u{' hex-unicode '}') | ws-escape | [^\\"] - disallowed-literal-code-points
+string-character :=
+    '\\' (["\\bfnrts] |
+    'u{' hex-unicode '}') |
+    ws-escape |
+    [^\\"] - disallowed-literal-code-points
 ws-escape := '\\' (unicode-space | newline)+
 hex-digit := [0-9a-fA-F]
 hex-unicode := hex-digit{1, 6} - surrogates
@@ -2784,10 +2809,21 @@ surrogates := [dD][8-9a-fA-F]hex-digit{2}
 //              D  F         FF
 
 raw-string := '#' raw-string-quotes '#' | '#' raw-string '#'
-raw-string-quotes := '"' single-line-raw-string-body '"' | '"""' newline multi-line-raw-string-body newline unicode-space* '"""'
-single-line-raw-string-body := '' | (single-line-raw-string-char - '"') single-line-raw-string-char*? | '"' (single-line-raw-string-char - '"') single-line-raw-string-char*?
-single-line-raw-string-char := unicode - newline - disallowed-literal-code-points
-multi-line-raw-string-body := (unicode - disallowed-literal-code-points)*?
+raw-string-quotes :=
+    '"' single-line-raw-string-body '"' |
+    '"""' newline
+    (multi-line-raw-string-body newline)?
+    unicode-space* '"""'
+single-line-raw-string-body :=
+    '' |
+    (single-line-raw-string-char - '"')
+        single-line-raw-string-char*? |
+    '"' (single-line-raw-string-char - '"')
+        single-line-raw-string-char*?
+single-line-raw-string-char :=
+    unicode - newline - disallowed-literal-code-points
+multi-line-raw-string-body :=
+    (unicode - disallowed-literal-code-points)*?
 
 // Numbers
 number := keyword-number | hex | octal | binary | decimal
@@ -2809,14 +2845,17 @@ boolean := '#true' | '#false'
 
 // Specific code points
 bom := '\u{FEFF}'
-disallowed-literal-code-points := See Table (Disallowed Literal Code Points)
+disallowed-literal-code-points :=
+    See Table (Disallowed Literal Code Points)
 unicode := Any Unicode Scalar Value
-unicode-space := See Table (All White_Space unicode characters which are not `newline`)
+unicode-space := See Table
+    (All White_Space unicode characters which are not `newline`)
 
 // Comments
 single-line-comment := '//' ^newline* (newline | eof)
 multi-line-comment := '/*' commented-block
-commented-block := '*/' | (multi-line-comment | '*' | '/' | [^*/]+) commented-block
+commented-block :=
+    '*/' | (multi-line-comment | '*' | '/' | [^*/]+) commented-block
 slashdash := '/-' line-space*
 
 // Whitespace
@@ -2825,11 +2864,14 @@ escline := '\\' ws* (single-line-comment | newline | eof)
 newline := See Table (All Newline White_Space)
 // Whitespace where newlines are allowed.
 line-space := node-space | newline | single-line-comment
-// Whitespace within nodes, where newline-ish things must be esclined.
+// Whitespace within nodes,
+// where newline-ish things must be esclined.
 node-space := ws* escline ws* | ws+
 
 // Version marker
-version := '/-' unicode-space* 'kdl-version' unicode-space+ ('1' | '2') unicode-space* newline
+version :=
+    '/-' unicode-space* 'kdl-version' unicode-space+ ('1' | '2')
+    unicode-space* newline
 </pre><a href="#section-4-2" class="pilcrow">¶</a>
 </div>
 <div id="grammar-language">
